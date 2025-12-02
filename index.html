@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="nav">
+    <div class="nav-container">
+      <h1 class="logo">⚡ Gaming Portal</h1>
+      <nav class="menu">
+        <a href="#hero">Home</a>
+        <a href="#games">Games</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h2>Welcome to the Ultimate Gaming Experience</h2>
+      <p>One place to explore cloud-hosted games with powerful design & immersive gameplay.</p>
+      <a href="#games" class="btn btn-primary">Explore Games</a>
+    </div>
+  </section>
+
+  <!-- GAMES SECTION -->
+  <section id="games" class="games-section">
+    <h2 class="section-title">Featured Games</h2>
+
+    <div class="game-grid">
+
+      <!-- GAME CARD -->
+      <div class="game-card">
+        <div class="game-thumb thumb-1"></div>
+        <h3>Balloon Pop</h3>
+        <p>Pop balloons in sequence 1–10! Plays on the cloud.</p>
+        <a href="https://balloon_game" target="_blank" class="btn btn-secondary">
+          Play Now
+        </a>
+      </div>
+
+      <!-- GAME CARD -->
+      <div class="game-card">
+        <div class="game-thumb thumb-2"></div>
+        <h3>Space Shooter</h3>
+        <p>Destroy meteors and survive. Coming soon!</p>
+        <a href="#" class="btn btn-disabled">Coming Soon</a>
+      </div>
+
+      <!-- GAME CARD -->
+      <div class="game-card">
+        <div class="game-thumb thumb-3"></div>
+        <h3>Racing Drift</h3>
+        <p>Drift your way through neon city. Coming soon.</p>
+        <a href="#" class="btn btn-disabled">Coming Soon</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about-section">
+    <h2 class="section-title">About This Portal</h2>
+    <p>
+      This Gaming Portal showcases cloud-hosted games created for assignment work.
+      Hosted on GitHub Pages; games deployed on cloud platforms like Firebase, Netlify, or Replit.
+    </p>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <h2 class="section-title">Contact</h2>
+    <p>Email: dibyanshgarg2710@gmail.com</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © <span id="year"></span> Gaming Portal
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+
