@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Balloon Pop 2.0 — Enhanced Edition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(#7fcfff, #3674d5);
+      font-family: Poppins, sans-serif;
+      user-select: none;
+    }
+
+    #game {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* HUD */
+    #hudBox {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding: 12px 18px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 14px;
+      display: flex;
+      gap: 20px;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    /* LIVE HEARTS */
+    .heart {
+      color: red;
+      font-size: 22px;
+    }
+
+    /* BALLOON */
+    .balloon {
+      position: absolute;
+      width: 90px;
+      height: 115px;
+      border-radius: 50% 50% 45% 45% / 55% 55% 40% 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.12s;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+    }
+
+    .balloon:hover {
+      transform: scale(1.12);
+    }
+
+    /* POP PARTICLES */
+    .particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      animation: explode 0.5s ease-out forwards;
+    }
+
+    @keyframes explode {
+      from { transform: scale(1); opacity: 1; }
+      to { transform: translate(var(--tx), var(--ty)) scale(0.1); opacity: 0; }
+    }
+
+    /* FLOATING CLOUDS */
+    .cloud {
+      position: absolute;
+      width: 250px;
+      height: 140px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.35;
+      filter: blur(3px);
+      animation: cloudMove 35s linear infinite;
+    }
+
+    @keyframes cloudMove {
+      0% { transform: translateX(-300px); }
+      100% { transform: translateX(120vw); }
+    }
+
+    /* SCREENS */
+    .screen {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .screen h1 {
+      font-size: 52px;
+      margin-bottom: 20px;
+    }
+
+    .screen button {
+      padding: 14px 28px;
+      background: #00f0ff;
+      border: none;
+      border-radius: 10px;
+      font-size: 22px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .screen button:hover {
+      background: #7dffff;
+    }
+
+    /* SCORE POPUP */
+    .score-popup {
+      position: absolute;
+      font-size: 20px;
+      font-weight: bold;
+      color: yellow;
+      animation: popFade 0.8s ease-out forwards;
+    }
+
+    @keyframes popFade {
+      0% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-40px); }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="game">
+
+    <!-- HUD -->
+    <div id="hudBox">
+      <div>Score: <span id="score">0</span></div>
+      <div>Time: <span id="time">60</span>s</div>
+      <div>Lives: <span id="lives">❤️❤️❤️</span></div>
+      <div>Level: <span id="level">1</span></div>
+    </div>
+
+    <!-- START SCREEN -->
+    <div id="startScreen" class="screen">
+      <h1>🎈 Balloon Pop 2.0 🎮</h1>
+      <p style="margin-bottom:25px; font-size:20px;">Pop balloons in correct sequence to level up!</p>
+      <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <!-- END SCREEN -->
+    <div id="endScreen" class="screen" style="display:none;">
+      <h1 id="endMsg"></h1>
+      <p id="finalStats"></p>
+      <button onclick="restartGame()">Play Again</button>
+    </div>
+
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
